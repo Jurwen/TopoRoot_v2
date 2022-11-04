@@ -66,7 +66,6 @@ int main(int argc,char *argv[])
 
 	cout << "press Enter to continue..." << endl;
 	cin.get();
-
 	return success;
 }
 
