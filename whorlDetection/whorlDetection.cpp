@@ -12,7 +12,7 @@
 #include <math.h>
 #include <assert.h>
 #include "helperFunction.h"
-
+#include <map>
 
 
 int main(int argc,char *argv[])
@@ -21,7 +21,6 @@ int main(int argc,char *argv[])
 	vector<vector<int>> edgeList;
 	vector<double long> radius;
 	vector<int> level;
-	std::cout << "Hello World!\n";
 	if (getSkeleton(vertexList, edgeList, "353-10_out_skel_fixed.ply", level, radius) == 1) {
 		cout << "Successfully initiated ply data... " << endl;
 	}
@@ -33,7 +32,6 @@ int main(int argc,char *argv[])
 	}
 	vector<vector<int>> adjMatrix = createMatrix(edgeList, connectivity);
 	vector<int> junctions;
-	cout << "hi" << endl;
 	for (int i = 0; i < edgeList.size(); i++) {
 		if (level[edgeList[i][0]] == 1 && level[edgeList[i][1]] == 2) {
 			junctions.push_back(edgeList[i][0]);
@@ -47,23 +45,86 @@ int main(int argc,char *argv[])
 		if (level[i] == 1) {
 			int neighborStem = 0;
 			vector<int> incidenceV = adjMatrix[i];
-			for (int element:incidenceV){
-				if (level[element] == 1) { neighborStem++; }
+			for (auto connectV: incidenceV) {
+				if (level[connectV] == 1) { neighborStem = neighborStem + 1; }
 			}
 			if (neighborStem == 1) {
 				twoEnds.push_back(i);
 			}
 		}
 	}
-	for (int i = 0; i < junctions.size(); i++) {
-		cout << junctions[i] << endl;
+	//for (int i = 0; i < level.size(); i++) {
+	//	cout << level[i] << endl;
+	//}
+	//cout << "twoEnds starting to print: " << endl;
+	//for (int i = 0; i < twoEnds.size(); i++) {
+	//	cout << twoEnds[i] << endl;
+	//}
+
+	if (vertexList[twoEnds[1]][2] < vertexList[twoEnds[0]][2]) {
+		vector<int> twoEnds_copy = twoEnds;
+		twoEnds[0] = twoEnds_copy[1];
+		twoEnds[1] = twoEnds_copy[0];
 	}
-	for (int i = 0; i < twoEnds.size(); i++) {
-		cout << twoEnds[i] << endl;
+	int trace = twoEnds[0];
+	map<int, double long> indexToDisMap; //for each vertex on the stem path, map to a number representing its geodesic distance form the top.
+	map<double long, int> disToIndexMap;
+	double long distance = 0; 
+	vector <int> stemPath = {trace};
+	while (trace != twoEnds[1]){
+		indexToDisMap[trace] = distance;
+		disToIndexMap[distance] = trace;
+		vector<int> incidenceV = adjMatrix[trace];
+		for (auto connectV : incidenceV) {
+			if (level[connectV] == 1 && connectV != stemPath.back()) {
+				if (trace != twoEnds[0]) {
+					stemPath.push_back(trace);
+				}
+				distance += euclid(vertexList[trace], vertexList[connectV]);
+				trace = connectV;
+				break;
+			}
+		}
+
 	}
-
-
-
+	stemPath.push_back(trace);
+	indexToDisMap[trace] = distance;
+	disToIndexMap[distance] = trace;
+	vector<vector<double long>> nodalRoots;
+	for (int i = 0; i < /*junctions.size()*/1; i++) {
+		queue<int> bfs;
+		bfs.push(junctions[i]);
+		vector<int> mark(vertexNum);
+		for (int j = 0; j < vertexNum; j++) {
+			mark[j] = 0;
+		}
+		mark[trace] = 1; 
+		graph g(vertexList.size());
+		vector<int> exitVertex;
+		while (!bfs.empty()) {
+			trace = bfs.front();
+			bfs.pop();
+			for (auto connectV : adjMatrix[trace]) {
+				if (mark[connectV] == 0) {
+					mark[connectV] = 1;
+					if (level[connectV] != 1 && level[connectV] != -1) {
+						g.add_edge(trace, connectV);
+						if (level[connectV] == 0) {
+							exitVertex.push_back(connectV);
+						}
+						else if (level[connectV] == 2) {
+							bfs.push(connectV);
+						}
+					}
+				}
+			}
+		}
+		for (int j = 0; j < exitVertex.size(); j++) {
+			vector<int> rootPath = g.print_path(junctions[i], exitVertex[j]);
+			for (auto v : rootPath) { cout << v << endl; }
+			cout << exitVertex[j] << endl;
+		}
+	}
 	cout << "press Enter to continue..." << endl;
 	cin.get();
 	return success;

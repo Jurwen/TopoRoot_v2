@@ -4,6 +4,8 @@
 #include <fstream>
 #include <sstream>
 #include <string>
+#include <stack>
+#include <queue>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -16,6 +18,26 @@ using namespace std;
 enum return_value{
 	fail,
 	success
+};
+
+class graph {
+
+private:
+	int v;
+	vector<int> *adj;
+public:
+	// constructor.
+	graph(int v) {
+		this->v = v;
+		adj = new vector<int>[v];
+	}
+	// set all the edges.
+	void add_edge(int u, int v) {
+		adj[u].push_back(v);
+		adj[v].push_back(u);
+	}
+	vector<int> print_path(int source, int dest);
+	bool BFS(int source, int dest, vector<int> parent);
 };
 
 double long euclid(vector <double long> x, vector <double long> y);
