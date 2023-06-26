@@ -7,7 +7,7 @@ TopoRoot: A method for computing hierarchy and fine-grained traits of maize root
 
 https://www.biorxiv.org/content/10.1101/2021.08.24.457522v1
 
-#Installation and Execution
+# Installation and Execution
 
 Please download the .exe file and put it at the same folder with the TopoRoot.exe
 
@@ -22,4 +22,10 @@ There are two new datasets:
 NAM: https://wustl.app.box.com/folder/214518933853
 PlantHaven2021: https://wustl.app.box.com/folder/214380610514
 PlantHaven2020 can be found in TopoRoot.
+
+# Graphical User Interface
+
+The graphical user interface can be found at this link: 
+https://github.com/Jurwen/RootGUI
+
 
