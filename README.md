@@ -11,9 +11,7 @@ https://www.biorxiv.org/content/10.1101/2021.08.24.457522v1
 
 Please download the .exe file and put it at the same folder with the TopoRoot.exe
 
-The program takes one input file, tims incorrect vertex data within the input file, and outputs an annotation file used for GUI's visualization of whorls and soil planes.
-
-The input file is in such format. Find *_skel_fixed.ply in the ouput file, and put it at the second place in the command line. 
+The program takes the smae input from TopoRoot. Change the TopoRoot.exe into TopoRoot_v2.exe, and the pipeline now will detect whorls and soil planes.
 
 # Experiment Data
 
