@@ -1,7 +1,8 @@
-# Whorl and Soil Plane Detection
+# TopoRoot+: Computing Whorl and Soil Line Traits of Maize Roots from CT Imaging
 
+#Introduction
 
-presents a complete, automatic, and high through-put phenotyping system based on TopoRoot using a single 3D X-ray CT scan of excavated maize root crowns. We build our computational methods for whorls and soil planes upon TopoRoot’s pipeline and its hierarchical skeletons. 
+TopoRoot+ presents a complete, automatic, and high through-put phenotyping system based on TopoRoot using a single 3D X-ray CT scan of excavated maize root crowns. We build our computational methods for whorls and soil planes upon TopoRoot’s pipeline and its hierarchical skeletons. 
 
 TopoRoot: A method for computing hierarchy and fine-grained traits of maize roots from X-ray CT images
 
