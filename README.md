@@ -70,18 +70,32 @@ For each analyzed sample, we offer the subsequent traits:
 For every hierarchy tier within the plant's structure (typically tiers 1-3; refer to settings), combined lateral roots (tiers >= 2), and a collective analysis of all roots (across all tiers), we provide:
 
 Count of roots
+
 Mean root span
+
 Cumulative root span
+
 Mean root width
+
 Mean root twist or deviation
+
 Root tip inclination
+
 Root emergence inclination
+
 Central point inclination
+
 Child root count
+
 Length of the stem
+
 Diameter of the stem
+
 Count of whorls
+
 Count of roots both above and beneath the ground level
+
 Whorl count both above and below the ground
+
 The two most extended distances between whorls
 
