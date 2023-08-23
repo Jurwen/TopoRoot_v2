@@ -99,3 +99,8 @@ Whorl count both above and below the ground
 
 The two most extended distances between whorls
 
+
+# Downsampling
+
+If images boast a resolution exceeding approximately 500^3, it's advised to reduce their resolution before utilizing the tool. Various software options like ImageJ are available for this purpose. 
+
