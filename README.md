@@ -10,7 +10,9 @@ https://www.biorxiv.org/content/10.1101/2021.08.24.457522v1
 
 # Installation and Execution
 
-Please download the .exe file and put it at the same folder with the TopoRoot.exe
+First, please follow this github page to download the vanilla version of TopoRoot: https://github.com/danzeng8/TopoRoot
+
+Please download the .exe file and put it at the same directory with the TopoRoot.exe
 
  TopoRoot+ can be run as follows. The first three arguments are required, while the rest are optional:
 
