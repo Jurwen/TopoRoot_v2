@@ -49,7 +49,7 @@ Note that this tool only supports maize roots. The accuracy of whorls and soil p
 # Experiment Data
 
 The data used for ground truth validation in our manuscript can be found here:
-There are two new datasets: 
+There are three datasets available: 
 
 NAM2022: https://wustl.app.box.com/folder/214518933853
 
