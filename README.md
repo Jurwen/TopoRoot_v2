@@ -98,7 +98,8 @@ Count of whorls (for the entire root/for above or below the plane)
 
 Internode distance between whorls
 
-Root Length Density
+Root Length Density: the total length of nodal roots and lateral roots per unit soil volume for each centimeter depth under the soil line, considering all roots in a “virtual” soil core - a cylinder whose axis is aligned with the root stem and whose radius covers 95% of all roots in our data set.
+
 
 
 # Downsampling
