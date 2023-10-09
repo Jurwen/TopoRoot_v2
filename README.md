@@ -98,7 +98,7 @@ Count of whorls (for the entire root/for above or below the plane)
 
 Internode distance between whorls
 
-Root Length Density 
+Root Length Density
 
 
 # Downsampling
